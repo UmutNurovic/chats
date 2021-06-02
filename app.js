@@ -11,6 +11,7 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const {checkUser} = require('./middlewares/authMiddleware');
 const socketio = require('socket.io');
+const formatMessage= require('./utlis/message');
 // parse applitacion/son
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -50,22 +51,22 @@ app.use((req,res,next)=>{
 //rotuer
 app.get('*',checkUser);
 app.use(authRoter);
-
+const botNames = 'ChatCord Bot'
 io.on('connection', socket => {
-    console.log("bir göt bağlandı");
+    //console.log("bir kişi bağlandı");
     //console.log(socket.id);
     // welcome current user
-  socket.emit('message','sa dostum');
+  socket.emit('message',formatMessage(botNames,'welcome bro'));
 
   // broadcast when a user connects
-  socket.broadcast.emit('message','A user has joined the chat');
+  socket.broadcast.emit('message',formatMessage(botNames,'A user has joined the chat'));
 // user disconnect
  socket.on('disconnect',()=>{
       io.emit('message','a user has left the chat');
   }); 
   //listen chatMessage
   socket.on('chatMessage',msg=>{
-      io.emit('message',msg);
+      io.emit('message',formatMessage('Users',msg));
   })
   });
 // start local host

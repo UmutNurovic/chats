@@ -14,6 +14,8 @@ router.post('/register', validateMiddleWare.validateNewUser(), authController.us
 
 router.get('/logout',authController.logout_get);
 router.get('/chat',(req,res)=>{
-    res.jsonp({chatsss});
+    // chat.js deki karşılaştırmalar yapıldıktan sonra gelen random user'ın id ve eşleşilen alanın adı gelmesi lazım o verileri kullanarak 2 kullanıcıyı odaya alıcam sohbet başlicak 
+    // kontroller ve oda ya alma olayı buttona basıldığında olması gerekiyor takıldığım 2 yer
+    res.render('chat');
 });
 module.exports= router;
