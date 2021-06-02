@@ -1,0 +1,83 @@
+<%- include('partials/header'); -%>
+ 
+
+<div class="container">
+    <form class="User" action="/register" method="POST">
+        <h2> Sign up </h2>
+        <% if (locals.validation_error != undefined) { %>
+          <%- include('./partials/_mesaj')  %> 
+         <% } %>
+        <label >Name</label>
+        <input type="name" name="name" value="<%= name!= 'undefined' ? name:''    %> " required>
+    
+        <label for="name">Phone Numeber</label>
+        <input type="phone" name="phone" value="<%= phone!= 'undefined' ? phone:''    %> "  required>
+    
+        <label for="email">Email</label>
+        <input type="email" name="email"  value="<%= email!= 'undefined' ? email:''    %> " required>
+        <div class="email error"> </div>
+    
+        <label for="password">Password</label>
+        <input type="password" name="password" value="<%= password!= 'undefined' ? password:''    %> " required>
+        <div class="password error"> </div>
+
+
+
+
+        <label for="name">hobi</label>
+        <div style="width:200px;">
+            <select name="hobi" class="custom-select-select" required>
+                <option value="">Hobi</option>
+              <option value="Doğa yürüyüşü">Doğa yürüyüşü</option>
+              <option value="Resim Sanatı">Resim Sanatı</option>
+              <option value="Heykel Sanatı">Heykel Sanatı</option>
+              <option value="Yazmak">Yazmak</option>
+              <option value="Koşmak">Koşmak</option>
+              <option value="Dans Etmek">Dans Etmek</option>
+              <option value="Yoga">Yoga</option>
+              <option value="Cosplay">Cosplay</option>
+              <option value="Okumak">Okumak</option>
+              <option value="Video Oyunları">Video Oyunları</option>
+              <option value="Bahçe işleri">Bahçe işleri</option>
+              <option value="Tahta işlemeciliği">Tahta işlemeciliği</option>
+            </select>
+          </div>
+          <label for="name">fobi</label>
+          <div style="width:200px;">
+              <select name="fobi" class="custom-select-select" required>
+                  <option value="">Fobi</option>  
+                <option value="Glossophobia">Glossophobia</option>
+                <option value="Agorafobi">Agorafobi</option>
+                <option value="SosyalFobi">Sosyal Fobi</option>
+                <option value="Klostrofobi">Klostrofobi</option>
+                <option value="Aviophobia">Aviophobia</option>
+                <option value="Acrophobia">Acrophobia</option>
+                <option value="Dentofobi">Dentofobi</option>
+                <option value="Cosplay">Cosplay</option>
+                <option value="Hemofobi">Hemofobi</option>
+                <option value="Nyctophobia ">Nyctophobia</option>
+                <option value="Cynophobia">Cynophobia</option>
+                <option value="Talasafobi">TalasaFobi</option>
+              </select>
+            </div>
+      
+          <label for="email">music category</label>
+          <div style="width:200px;">
+              <select name="music" class="custom-select-select" required>
+                  <option value="">Music</option>  
+                <option value="Enstrümantal">Enstrümantal</option>
+                <option value="Klasik">Klasik</option>
+                <option value="Blues">Blues</option>
+                <option value="Halk">Halk</option>
+                <option value="Jazz">Jazz</option>
+                <option value="Pop">Pop</option>
+                <option value="Rock">Rock</option>
+              </select>
+            </div>
+          <button> Sign up</button>
+    
+    </form>
+    
+</div>
+
+<%- include('partials/footer'); -%>

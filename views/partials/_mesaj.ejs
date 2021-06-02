@@ -1,0 +1,14 @@
+<% validation_error.forEach(element => { %>
+    <h4 class="error"><%- element.msg%> </h4>
+  <% }) %>
+
+
+  <% login_error.forEach(errors => { %>
+    <div class=" alert alert-danger alert-dismissible fade show" role="alert">
+       <h4 class="error"> <%- errors%> </h4>
+    </div>
+   <% }) %>
+
+   <% success_message.forEach(element => { %>
+    <h4><%- element.msg %></h4>
+   <% }) %>
