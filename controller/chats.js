@@ -31,7 +31,7 @@ module.exports= function chatsClass (){
                     const My =res.locals.user._id.toString();
                     let randomUsers=doc._id.toString();
                      if (My == randomUsers ){
-                        console.log("şansını sikim kendin denk geldin");
+                        console.log("şansınızsın  kendin denk geldin");
                         res.redirect('/');
                     }
                     else if(res.locals.user.music == doc.music){
